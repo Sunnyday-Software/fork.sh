@@ -48,6 +48,6 @@ docker run --rm -ti -v "%CD%:/app" javanile/fork.sh --hard
 
 ```bash
 curl -i "https://git.io" \
-     -d "url=[https://raw.githubusercontent.com/javanile/fork.sh/master/fork.sh](https://raw.githubusercontent.com/Sunnyday-Software/fork.sh/master/fork.sh)" \
+     -d "url=https://raw.githubusercontent.com/Sunnyday-Software/fork.sh/master/fork.sh" \
      -d "code=fork.sh"
 ```
