@@ -95,7 +95,7 @@ main() {
 
     # Handle update option
     if [[ -n "${local_update}" ]]; then
-        workdir="$(mktemp -d -t fork-update-dir-XXXXXXXXXX)/UPDATE"
+        workdir="$(mk_tmp_dir "fork-update-dir")/UPDATE"
         git clone -q "${local_update}" "${workdir}" || true
         [[ -d "${workdir}" ]] || fork_error "Problem while creating: ${local_update}"
     fi
@@ -120,7 +120,7 @@ main() {
     fi
 
     # Create trace file
-    trace=$(mktemp -t fork-trace-XXXXXXXXXX)
+    trace=$(mk_tmp_file "fork-trace")
     echo "START ${workdir}" > "${trace}"
 
     # Commit any changes

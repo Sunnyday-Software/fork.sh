@@ -42,7 +42,7 @@ fork_clone() {
     fork_log "Fetch '${repository}' from ${branch_info} branch."
 
     # Create temporary directory for cloning
-    local tmpdir=$(mktemp -d -t fork-clone-dir-XXXXXXXXXX)
+    local tmpdir=$(mk_tmp_dir "fork-clone-dir")
     cd ${tmpdir}
 
     # Clone the repository

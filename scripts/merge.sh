@@ -23,7 +23,7 @@ fork_merge() {
     fork_log "Merging '${source}' to '${target}' from '${PWD}'"
 
     # Create temporary file for merge
-    local tmp=$(mktemp -t merge-diff-XXXXXXXXXX)
+    local tmp=$(mk_tmp_file "merge-diff")
 
     # Create target file if it doesn't exist
     [[ -f "${target}" ]] || touch "${target}"

@@ -32,7 +32,7 @@ fork_parse() {
 
     if [[ -e Forkfile ]]; then
         local row=0
-        local forkfile=$(mktemp -t forkfile-XXXXXXXXXX)
+        local forkfile=$(mk_tmp_file "forkfile")
         export Forkfile_from=rbn
         envsubst < Forkfile > "${forkfile}"
 

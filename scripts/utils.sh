@@ -3,6 +3,34 @@
 ##
 # Utility functions for fork.sh
 ##
+TEMP_DIR=".runtime/fork/tmp"
+##
+# Create a temporary directory
+# $1 - Prefix for the directory name (optional)
+# Returns the path to the created directory
+##
+mk_tmp_dir() {
+    local prefix="${1:-fork-tmp}"
+    local random_suffix=$(LC_ALL=C tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 10)
+    local tmp_dir="${TEMP_DIR}/${prefix}-${random_suffix}"
+
+    mkdir -p "$tmp_dir"
+    echo "$tmp_dir"
+}
+
+##
+# Create a temporary file
+# $1 - Prefix for the file name (optional)
+# Returns the path to the created file
+##
+mk_tmp_file() {
+    local prefix="${1:-fork-tmp}"
+    local random_suffix=$(LC_ALL=C tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 10)
+    local tmp_file="${TEMP_DIR}/${prefix}-${random_suffix}"
+
+    touch "$tmp_file"
+    echo "$tmp_file"
+}
 
 ##
 # Print log message
